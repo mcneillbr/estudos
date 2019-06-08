@@ -31,7 +31,7 @@ function pugTask() {
 }
 
 function cssTask() {
-    return src('./css/**/*.css')
+    return src('./src/css/**/*.css')
     .pipe(minifyCSS())
     .pipe(dest('./dest/build/css'))
 }
@@ -50,7 +50,11 @@ function jsTask() {
 }
 
 function sassWatch() {
-    watch('./css/**/*.scss', sass);
+    watch('./src/css/**/*.scss', sassTask);
+}
+
+function pugWatch() {
+    watch('./src/templates/**/*.pug', pugTask);
 }
 
 exports.clean = cleanTask;
@@ -59,4 +63,5 @@ exports.css = cssTask;
 exports.sass = sassTask;
 exports.html = htmlTask;
 exports.pug = pugTask;
+exports.pugWatch = pugWatch;
 exports.default = parallel(htmlTask, pugTask, jsTask, sassTask, cssTask);
