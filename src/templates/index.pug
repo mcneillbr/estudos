@@ -13,3 +13,20 @@ html(lang="en")
     form(action="")
         label(for="txtBase") test
         input(type="text" value="a" id="txtBase")
+    div
+        p texto p
+            span a
+    ul.list-basic
+        - for (var x = 0; x < 3; x++)
+            li item
+
+    div.block-list
+        ul
+            - var list = ["Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis"]
+                each it in list
+                    li= it
+    div.element-cs 
+        p triangle
+    table
+        tr
+            td table

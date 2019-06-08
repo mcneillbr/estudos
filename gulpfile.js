@@ -9,6 +9,9 @@ const minifyCSS = require('gulp-csso');
 const concat = require('gulp-concat');
 const del = require('delete');
 
+const bourbon = require("bourbon").includePaths;
+const neat = require("bourbon-neat").includePaths;
+
 // const gulpif = require('gulp-if');
 // const uglify = require('gulp-uglify');
 // const noop = require("gulp-noop");
@@ -38,7 +41,12 @@ function cssTask() {
 
 function sassTask() {
   return src('./src/css/**/*.scss')
-    .pipe(sass()).on('error', sass.logError)
+    .pipe(
+        sass({
+            sourcemaps: true,
+            includePaths: [bourbon, neat]
+    })
+    ).on('error', sass.logError)
     //.pipe(minifyCSS())
     .pipe(dest('./dest/build/css'))
 }
@@ -56,6 +64,10 @@ function sassWatch() {
 function pugWatch() {
     watch('./src/templates/**/*.pug', pugTask);
 }
+function watchTask() {
+    watch('./src/css/**/*.scss', sassTask);
+    watch('./src/templates/**/*.pug', pugTask);
+}
 
 exports.clean = cleanTask;
 exports.js = jsTask;
@@ -64,4 +76,5 @@ exports.sass = sassTask;
 exports.html = htmlTask;
 exports.pug = pugTask;
 exports.pugWatch = pugWatch;
+exports.watch = watchTask;
 exports.default = parallel(htmlTask, pugTask, jsTask, sassTask, cssTask);

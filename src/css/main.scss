@@ -2,27 +2,75 @@
 */
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Varela+Round&display=swap');
 
+@import "bourbon";
+@import "neat";
+
 /* apply a natural box layout model to all elements, but allowing components to change */
 
 html {
-    box-sizing: border-box;
-    padding: 0;
-    margin:0;
-  }
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 
-  body {
-    padding: 0;
-    margin:0;
-    font-family: 'Roboto', sans-serif;
-    background-color: bisque;
-  }
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: bisque;
+}
 
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-  * {
-    padding: 0;
-    margin:0;
-  }
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
 
-  
+* {
+  padding: 0;
+  margin: 0;
+}
+
+
+.first {
+  font-weight: bold;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+p {
+  margin: 2px;
+  padding: 4px;
+  background-color: aqua;
+
+  span {
+    margin: 2px;
+    padding: 6px;
+    background-color: greenyellow;
+    font-family: 'Varela', 'Segoe UI', Tahoma, 'Geneva', Verdana, sans-serif
+  }
+}
+ul.list-basic {
+  margin: 5px;
+}
+
+div.block-list {
+  ul {
+    background-color:lightcoral;
+    margin: 22px;
+    padding: 4px; 
+
+    li {
+      font-size: 18px;
+    }
+  }
+}
+
+.element-cs {
+  &::before {
+    @include triangle("up", 2rem, 1rem, #b25c9c);
+    content: "";
+  }
+}
