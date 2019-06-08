@@ -1,0 +1,33 @@
+{
+  "name": "estudos",
+  "version": "1.0.0",
+  "description": "estudo de front-end fiap",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcneillbr/estudos.git"
+  },
+  "keywords": [
+    "fiap",
+    "javascript",
+    "css"
+  ],
+  "author": "mcneillbr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcneillbr/estudos/issues"
+  },
+  "homepage": "https://github.com/mcneillbr/estudos#readme",
+  "devDependencies": {
+    "delete": "^1.1.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "pug": "^2.0.3"
+  }
+}
