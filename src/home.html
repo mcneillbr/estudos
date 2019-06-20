@@ -9,5 +9,17 @@
 </head>
 <body>
     <h1>Titulo</h1>
+    <p>mockapi.io</p>
+
+    <script>
+        function reqListener(evt) {
+          console.log(arguments, evt);
+          console.debug(this.responseText);
+        }
+      var oReq = new XMLHttpRequest();
+        oReq.addEventListener("load", reqListener);
+        oReq.open('GET', 'https://5d04064fd1471e00149bb174.mockapi.io/api/v1/blogs');
+        oReq.send();
+      </script>
 </body>
 </html>
